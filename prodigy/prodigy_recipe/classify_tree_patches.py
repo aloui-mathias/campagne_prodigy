@@ -11,7 +11,8 @@ with open('prodigy_recipe/template.html', 'r') as template:
 with open('prodigy_recipe/template.css', 'r') as template:
     css_template = template.read()
 
-print(css_template)
+with open('prodigy_recipe/template.js', 'r') as template:
+    javascript_template = template.read()
 
 @prodigy.recipe("classify-trees")
 def classify_trees(dataset, source):
@@ -26,17 +27,15 @@ def classify_trees(dataset, source):
     return {
         "dataset": dataset,
         "stream": stream,
-        "view_id": "blocks",
+        "view_id": "image_manual",
         "exclude": [],
         "config": {
-            "blocks": [
-                {"view_id": "image_manual"},
-                {"view_id": "html", "html_template": html_template}],
             "global_css": css_template,
+            "javascript": javascript_template,
             "force_stream_order": True,
             "feed_overlap": True,
-            "batch_size": "1",
-            "answer_batch_size": "1",
+            "batch_size": "2",
+            "answer_batch_size": "2",
             "label": "Tree",
             "labels": ["Tree"],
             "image_manual_modes": ["rect"],

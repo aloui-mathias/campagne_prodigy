@@ -1,17 +1,22 @@
 .prodigy-title {
-    display: none;
+  display: none;
 }
 
 .prodigy-button-reject {
-    display: none;
+  display: none;
 }
 
-#root>div>main>div.prodigy-annotator.c0149>div>div>div.prodigy-content.c01113.c01119.c01114 {
-    position: absolute;
-    left: 0;
+#root > div > main > div.prodigy-annotator.c0149 > div > div {
+  max-width: unset;
 }
 
 .instructions {
-    display: flex;
-    flex-direction: column;
+  position: absolute;
+  top: 60px;
+  right: 5px;
+  width: 500px;
+  font-size: 1.5rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
 }
