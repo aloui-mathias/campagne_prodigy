@@ -5,6 +5,14 @@ from prodigy.components.db import connect
 import random
 from datetime import datetime
 
+with open('prodigy_recipe/template.html', 'r') as template:
+    html_template = template.read()
+
+with open('prodigy_recipe/template.css', 'r') as template:
+    css_template = template.read()
+
+print(css_template)
+
 @prodigy.recipe("classify-trees")
 def classify_trees(dataset, source):
 
@@ -18,9 +26,13 @@ def classify_trees(dataset, source):
     return {
         "dataset": dataset,
         "stream": stream,
-        "view_id": "image_manual",
+        "view_id": "blocks",
         "exclude": [],
         "config": {
+            "blocks": [
+                {"view_id": "image_manual"},
+                {"view_id": "html", "html_template": html_template}],
+            "global_css": css_template,
             "force_stream_order": True,
             "feed_overlap": True,
             "batch_size": "1",
@@ -29,7 +41,5 @@ def classify_trees(dataset, source):
             "labels": ["Tree"],
             "image_manual_modes": ["rect"],
             "image_manual_show_labels": False,
-            "global_css":
-                ".prodigy-buttons button:nth-child(2) {display: none}"
         }
     }

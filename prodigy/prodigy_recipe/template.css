@@ -1,0 +1,17 @@
+.prodigy-title {
+    display: none;
+}
+
+.prodigy-button-reject {
+    display: none;
+}
+
+#root>div>main>div.prodigy-annotator.c0149>div>div>div.prodigy-content.c01113.c01119.c01114 {
+    position: absolute;
+    left: 0;
+}
+
+.instructions {
+    display: flex;
+    flex-direction: column;
+}
