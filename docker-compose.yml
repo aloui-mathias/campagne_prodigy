@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  traefik:
+    image: traefik:v2.4
+    command:
+      - "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+  prodigy:
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.prodigy.rule=Host(`${PRODIGY_DOMAIN}`)"
+      - "traefik.http.routers.prodigy.entrypoints=web"
+  landing_page:
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.landing_page.rule=Host(`${LANDING_PAGE_DOMAIN}`) && PathPrefix(`/`)"
+      - "traefik.http.routers.landing_page.entrypoints=web"

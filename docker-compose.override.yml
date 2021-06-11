@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  traefik:
+    ports:
+      - "8888:80"
+      - "8889:8080"
+  landing_page:
+    build:
+      context: ./landing_page
+  prodigy:
+    build:
+      context: ./prodigy
