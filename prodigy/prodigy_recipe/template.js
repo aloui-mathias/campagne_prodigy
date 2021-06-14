@@ -1,10 +1,23 @@
-setTimeout(() => {
+
+function reverse(n) {  // Reverse the order of the children of Node n
+  var kids = n.childNodes;                  // Get the list of children
+  var numkids = kids.length;                // Figure out how many there are
+  for (var i = numkids - 1; i >= 0; i--) {  // Loop through them backwards
+    var c = n.removeChild(kids[i]);         // Remove a child
+    n.appendChild(c);                       // Put it back at its new position
+  }
+}
+
+
+const main = () => {
 
   // Change the toolbar above the image
 
   const toolbar = document.querySelector(
     "#root > div > main > div.prodigy-annotator.c0149 > div > div > div.prodigy-title-wrapper.c0184 > div.c0178 > div"
   );
+
+  toolbar.style.justifyContent = "start";
 
   // Add instructions button  
 
@@ -15,6 +28,7 @@ setTimeout(() => {
   button.style.color = "#fff";
   button.classList.add("c0197");
   button.classList.add("c0198");
+  button.style.marginLeft = "auto";
   button.addEventListener("click", () => {
     alert(
       [
@@ -28,6 +42,14 @@ setTimeout(() => {
 
   toolbar.appendChild(button);
 
+  // Translate "All lables" to "Afficher les étiquettes"
+
+  const textLabelsToggle = document.querySelector(
+    '#root > div > main > div.prodigy-annotator.c0149 > div > div > div.prodigy-title-wrapper.c0184 > div.c0178 > div > div.c0180 > label > span'
+  );
+
+  textLabelsToggle.innerHTML = "Afficher les étiquettes"
+
 
 
   // Change container
@@ -36,7 +58,23 @@ setTimeout(() => {
     "#root > div > main > div.prodigy-annotator.c0149 > div"
   );
 
-  container.style.maxWidth = "unset";
+  // Change size of the frame around the image
+
+  const frame = document.querySelector(
+    '#root > div > main > div.prodigy-annotator.c0149 > div > div'
+  );
+
+  // Change the size of the image
+
+  const image = document.querySelector(
+    '#root > div > main > div.prodigy-annotator.c0149 > div > div > div.prodigy-content.c01111.c01110.c0175.c01112 > div > div > div > canvas'
+  );
+
+  image.style.width = "100%";
+  image.style.height = "100%";
+
+
+  frame.style.maxWidth = 'unset';
 
   // Add text below the image
 
@@ -59,6 +97,14 @@ setTimeout(() => {
   title.style.display = "none";
 
 
+  // Change buttons order
+
+  const buttons = document.querySelector(
+    '#root > div > main > div.prodigy-annotator.c0149 > footer > div'
+  );
+
+  reverse(buttons);
+
   // Change the valid button
 
   const valid = document.querySelector(
@@ -67,7 +113,7 @@ setTimeout(() => {
 
   valid.innerHTML = "Valider";
   valid.style.fontWeight = "900";
-  valid.style.width = "100%";
+  valid.style.width = "60%";
 
 
   // Remove the reject button
@@ -89,7 +135,7 @@ setTimeout(() => {
   ignore.style.background = "#dde05d";
   ignore.style.fontWeight = "900";
   ignore.classList.remove("c0163");
-  ignore.style.width = "75%";
+  ignore.style.width = "20%";
 
 
   // Change the undo button
@@ -98,6 +144,19 @@ setTimeout(() => {
     '#root > div > main > div.prodigy-annotator.c0149 > footer > div > button.prodigy-button-undo.c0160.c0164'
   );
 
-  undo.style.width = "50%";
+  undo.style.width = "20%";
 
-}, 200);
+}
+
+const waitForElement = (selector, fn) => {
+  const interval = setInterval(() => {
+    const element = document.querySelector(selector);
+
+    if (element) {
+      clearInterval(interval);
+      fn();
+    }
+  }, 10);
+}
+
+waitForElement('#root', main);

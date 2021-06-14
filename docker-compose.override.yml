@@ -5,6 +5,7 @@ services:
     ports:
      - "80:80"
      # - "8889:8080"
+     - "443:443"
   landing_page:
     build:
       context: ./landing_page
