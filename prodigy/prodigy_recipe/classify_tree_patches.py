@@ -5,12 +5,6 @@ from prodigy.components.db import connect
 import random
 from datetime import datetime
 
-with open('prodigy_recipe/template.html', 'r') as template:
-    html_template = template.read()
-
-with open('prodigy_recipe/template.css', 'r') as template:
-    css_template = template.read()
-
 with open('prodigy_recipe/template.js', 'r') as template:
     javascript_template = template.read()
 
@@ -30,7 +24,6 @@ def classify_trees(dataset, source):
         "view_id": "image_manual",
         "exclude": [],
         "config": {
-            "global_css": css_template,
             "javascript": javascript_template,
             "force_stream_order": True,
             "feed_overlap": True,
