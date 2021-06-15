@@ -76,17 +76,6 @@ const main = () => {
 
   frame.style.maxWidth = 'unset';
 
-  // Add text below the image
-
-  const text = document.createElement("p");
-
-  text.innerHTML =
-    "mathias tienes que cambiar este texto porque eres el más grande !";
-  text.style.textAlign = "center";
-  text.style.fontSize = "2rem";
-
-  container.appendChild(text);
-
 
   // Remove the title with label "Tree"
 

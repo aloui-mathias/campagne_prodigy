@@ -13,11 +13,10 @@ services:
       - --certificatesresolvers.le.acme.email=${ACME_EMAIL}
       - --certificatesresolvers.le.acme.storage=/certificates/acme.json
       - --certificatesresolvers.le.acme.tlschallenge=true
+      - --entrypoints.web.http.redirections.entrypoint.to=websecure
+      - --entrypoints.web.http.redirections.entrypoint.scheme=https
     labels:
       - traefik.http.services.traefik.loadbalancer.server.port=80
-      - traefik.http.middlewares.wwwtohttps.redirectregex.regex=^https?://(?:www\.)?(.+)
-      - traefik.http.middlewares.wwwtohttps.redirectregex.replacement=https://$${1}
-      - traefik.http.middlewares.wwwtohttps.redirectregex.permanent=true
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./acme.json:/certificates/acme.json
@@ -28,9 +27,6 @@ services:
       - traefik.http.routers.prodigy.entrypoints=websecure
       - traefik.http.routers.prodigy.tls=true
       - traefik.http.routers.prodigy.tls.certresolver=le
-      #- traefik.http.routers.prodigy.web-catchall.rule=Host(`${PRODIGY_DOMAIN}`)
-      #- traefik.http.routers.prodigy.web-catchall.entrypoints=web
-      #- traefik.http.routers.prodigy.web-catchall.middlewares=wwwtohttps
   landing_page:
     labels:
       - traefik.enable=true
@@ -38,6 +34,3 @@ services:
       - traefik.http.routers.landing_page.entrypoints=websecure
       - traefik.http.routers.landing_page.tls=true
       - traefik.http.routers.landing_page.tls.certresolver=le
-      #- traefik.http.routers.landing_page.web-catchall.rule=Host(`${LANDING_PAGE_DOMAIN}`)
-      #- traefik.http.routers.landing_page.web-catchall.entrypoints=web
-      #- traefik.http.routers.landing_page.web-catchall.middlewares=wwwtohttps

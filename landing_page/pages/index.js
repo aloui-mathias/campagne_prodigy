@@ -50,10 +50,12 @@ export default function Home({ prodigyUrl }) {
       </Head>
 
       <main className={styles.main}>
-        <h1>
-          Natural Solutions vous présente sa campagne d'annotations pour la
-          détection d'arbres
-        </h1>
+        <div className={styles.mainTitle}>
+          <h1>
+            Natural Solutions vous présente sa campagne d'annotations pour la
+            détection d'arbres
+          </h1>
+        </div>
         <p className={styles.paragraph}>
           Pour participer à la campagne d'annotations et d'amélioration du
           modèle de détection d'arbres, entrez adresse email et commencez à
@@ -68,7 +70,7 @@ export default function Home({ prodigyUrl }) {
         />
         <Button onClick={handleOnStart} text="Commencer" />
       </main>
-      <footer className={styles.footer}>dfdfsdfsd</footer>
+      <footer className={styles.footer}>Natural Solutions</footer>
     </div>
   );
 }
