@@ -1,1 +1,1 @@
-* * * * * sh /app/export.sh >/var/log/cron.log >/var/log/cron.log
+* * * * * . /etc/profile; (cd /app && python -m prodigy db-out dataset > /app/data/export/dataset.jsonl) > /var/log/cron.log 2>&1

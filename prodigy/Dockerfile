@@ -8,7 +8,6 @@ RUN cd /tmp/install && pip install ./prodigy*.whl # ex: install/prodigy-1.10.8-c
 
 WORKDIR /app
 
-ADD ./export.sh /app/export.sh
 ADD ./crontab /etc/cron.d/export
 RUN chmod 0644 /etc/cron.d/export
 RUN crontab /etc/cron.d/export

@@ -29,7 +29,6 @@ services:
       - traefik.http.routers.prodigy.tls.certresolver=le
     volumes:
       - ./data/config/prodigy.json:/app/prodigy.json
-      - ./data/import/${DATASET}.jsonl:/app/data/import/data.jsonl
       - ./data:/app/data
   landing_page:
     labels:

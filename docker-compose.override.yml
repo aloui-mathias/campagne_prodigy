@@ -9,5 +9,7 @@ services:
     build:
       context: ./landing_page
   prodigy:
+    ports:
+      - "8888:8080"
     build:
       context: ./prodigy
