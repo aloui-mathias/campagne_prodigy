@@ -340,6 +340,12 @@ const main = () => {
 
   setTimeout(createDialog, 300);
 
+  window.addEventListener('beforeunload', function (e) {
+    e.preventDefault();
+    e.returnValue = '';
+    document.querySelector('#root > div > main > div.prodigy-sidebar-wrapper.c017 > div > header > div > button').click();
+  });
+
 }
 
 const waitForElement = (selector, fn) => {
