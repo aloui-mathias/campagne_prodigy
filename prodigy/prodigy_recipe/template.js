@@ -36,7 +36,7 @@ const createDialog = () => {
   // dialogInstruction.style.fontSize = "2rem";
   // dialogInstruction.style.padding = "2%";
 
-  dialog.appendChild(dialogInstruction)
+  // dialog.appendChild(dialogInstruction)
 
   const dialogButton = document.createElement("button");
 
