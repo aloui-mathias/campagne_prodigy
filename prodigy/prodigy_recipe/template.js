@@ -29,14 +29,23 @@ const createDialog = () => {
 
   dialog.appendChild(dialogIntro)
 
-  // const dialogInstruction = document.createElement('div');
+  const dialogInstruction = document.createElement('div');
 
-  // dialogInstruction.innerHTML = "Instruction";
-  // dialogInstruction.style.textAlign = "left";
-  // dialogInstruction.style.fontSize = "2rem";
-  // dialogInstruction.style.padding = "2%";
+  dialogInstruction.innerHTML = [
+    "Instructions :",
+    "- Pour ajouter une annotation, dessinez le rectangle en maintenant le clique.",
+    "- Pour pouvoir modifier les annotations, cochez \"Modifier ou supprimer des annotations\" :",
+    "- Pour changer la taille et la position, cliquez sur l'étiquette de l'annotation puis bougez les points.",
+    "- Pour supprimer, cliquez sur l'étiquette de l'annoation puis cliquez sur la poubelle.",
+    " Pour annuler toutes vos modifications, cliquez sur la double flèche circulaire.",
+    "",
+    "Une fois l'image annotée, cliquez sur \"Valider\". Si vous souhaitez passer une image, cliquez sur \"Ignorer\". Si vous voulez retourner à l'image précédente, cliquez sur la flèche en bas à gauche."
+  ].join('<br/>');
+  dialogInstruction.style.textAlign = "left";
+  dialogInstruction.style.fontSize = "2rem";
+  dialogInstruction.style.padding = "2%";
 
-  // dialog.appendChild(dialogInstruction)
+  dialog.appendChild(dialogInstruction)
 
   const dialogButton = document.createElement("button");
 
