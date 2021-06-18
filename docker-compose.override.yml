@@ -3,9 +3,8 @@ version: "3.8"
 services:
   traefik:
     ports:
-     - "80:80"
-     # - "8889:8080"
-     - "443:443"
+      - "80:80"
+      - "443:443"
   landing_page:
     build:
       context: ./landing_page
