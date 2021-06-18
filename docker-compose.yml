@@ -27,6 +27,8 @@ services:
       - traefik.http.routers.prodigy.entrypoints=websecure
       - traefik.http.routers.prodigy.tls=true
       - traefik.http.routers.prodigy.tls.certresolver=le
+    volumes:
+      - ./data:/app/data
   landing_page:
     labels:
       - traefik.enable=true

@@ -9,7 +9,92 @@ function reverse(n) {  // Reverse the order of the children of Node n
 }
 
 
+const createDialog = () => {
+
+  const dialog = document.createElement('div');
+
+  const dialogTitle = document.createElement('div');
+
+  dialogTitle.innerHTML = "Bienvenue dans la campagne d'annotations !";
+  dialogTitle.style.padding = "2%";
+  dialogTitle.style.fontSize = "4rem";
+
+  dialog.appendChild(dialogTitle);
+
+  const dialogIntro = document.createElement('div');
+
+  dialogIntro.innerHTML = "Corriger les annotations et aider à l'amélioration d'un algorithme de Deep-Learning :-)"
+  dialogIntro.style.fontSize = "2rem";
+  dialogIntro.style.padding = "2%";
+
+  dialog.appendChild(dialogIntro)
+
+  // const dialogInstruction = document.createElement('div');
+
+  // dialogInstruction.innerHTML = "Instruction";
+  // dialogInstruction.style.textAlign = "left";
+  // dialogInstruction.style.fontSize = "2rem";
+  // dialogInstruction.style.padding = "2%";
+
+  dialog.appendChild(dialogInstruction)
+
+  const dialogButton = document.createElement("button");
+
+  dialogButton.innerHTML = "Fermer";
+  dialogButton.style.background = "#54606e";
+  dialogButton.style.color = "#fff";
+  dialogButton.classList.add("c0197");
+  dialogButton.classList.add("c0198");
+  dialogButton.style.margin = "auto";
+  dialogButton.style.fontSize = "2rem";
+  dialogButton.addEventListener("click", closeDialog);
+
+  dialog.appendChild(dialogButton);
+
+  dialog.id = 'dialog';
+
+  dialog.style.position = "absolute";
+  dialog.style.background = "rgb(246, 246, 246)";
+  dialog.style.top = "20%";
+  dialog.style.left = "0%";
+  dialog.style.padding = "2%";
+  dialog.style.margin = "3%";
+  dialog.style.textAlign = "center";
+  dialog.style.height = "fit-content";
+  dialog.style.width = "94%";
+  dialog.style.border = "10px solid #54606e";
+  dialog.style.zIndex = "500";
+
+  const boardSpace = document.querySelector('#board > div.c0176');
+  boardSpace.appendChild(dialog);
+
+}
+
+const closeDialog = () => {
+  document.getElementById('dialog').style.display = "none";
+}
+
+const openDialog = () => {
+  document.getElementById('dialog').style.display = "block";
+}
+
 const main = () => {
+
+  // Change place allow for toolbar
+
+  const toolbarWrapper = document.querySelector(
+    '#root > div.c012 > main > div.prodigy-annotator.c0149 > div > div > div.prodigy-title-wrapper.c0184'
+  );
+
+  toolbarWrapper.style.height = "fit-content";
+
+  // Change the size of the div for the toolbar
+
+  const toolbarDiv = document.querySelector(
+    '#root > div > main > div.prodigy-annotator.c0149 > div > div > div.prodigy-title-wrapper.c0184 > div.c0178'
+  );
+
+  toolbarDiv.style.height = "100%";
 
   // Change the toolbar above the image
 
@@ -17,7 +102,64 @@ const main = () => {
     "#root > div > main > div.prodigy-annotator.c0149 > div > div > div.prodigy-title-wrapper.c0184 > div.c0178 > div"
   );
 
-  toolbar.style.justifyContent = "start";
+  reverse(toolbar);
+
+  toolbar.style.height = "100%";
+  toolbar.style.alignContent = "center";
+  toolbar.style.alignItems = "center";
+  toolbar.style.padding = "2%";
+
+  // Change the size of the sub div in the toolbar
+
+  toolbar.childNodes[0].style.width = "80%";
+  toolbar.childNodes[0].style.height = "100%";
+  toolbar.childNodes[1].style.width = "100%";
+  toolbar.childNodes[1].style.height = "100%";
+
+  toolbar.childNodes[1].style.alignContent = "center";
+  toolbar.childNodes[1].style.textAlign = "center";
+
+  // Change the size of the checkbox
+
+  // const checkbox = document.querySelector(
+  //   '#\38 039f50a-0d44-44f8-be22-ada5973497ba'
+  // );
+
+  // checkbox.style.transform = "scale(1.5)";
+
+  // Change the size of the delete button
+
+  const deleteButton = document.querySelector(
+    '#root > div > main > div.prodigy-annotator.c0149 > div > div > div.prodigy-title-wrapper.c0184 > div.c0178 > div > div:nth-child(1) > button:nth-child(1)'
+  );
+
+  deleteButton.style.width = "12%";
+  deleteButton.style.minWidth = "fit-content";
+  deleteButton.style.height = "auto";
+
+  const deleteImage = document.querySelector(
+    '#root > div > main > div.prodigy-annotator.c0149 > div > div > div.prodigy-title-wrapper.c0184 > div.c0178 > div > div:nth-child(1) > button:nth-child(1) > svg'
+  );
+
+  deleteImage.style.width = "100%";
+  deleteImage.style.height = "100%";
+
+  // Change the size of the revert button
+
+  const revertButton = document.querySelector(
+    '#root > div > main > div.prodigy-annotator.c0149 > div > div > div.prodigy-title-wrapper.c0184 > div.c0178 > div > div:nth-child(1) > button:nth-child(2)'
+  );
+
+  revertButton.style.width = "12%";
+  revertButton.style.minWidth = "fit-content";
+  revertButton.style.height = "auto";
+
+  const revertImage = document.querySelector(
+    '#root > div > main > div.prodigy-annotator.c0149 > div > div > div.prodigy-title-wrapper.c0184 > div.c0178 > div > div:nth-child(1) > button:nth-child(2) > svg'
+  );
+
+  revertImage.style.width = "100%";
+  revertImage.style.height = "100%";
 
   // Add instructions button  
 
@@ -29,18 +171,19 @@ const main = () => {
   button.classList.add("c0197");
   button.classList.add("c0198");
   button.style.marginLeft = "auto";
-  button.addEventListener("click", () => {
-    alert(
-      [
-        "Ajouter une annotation : cliquez et maintenez le clique sur l'image, dessinez le rectangle et lâchez.",
-        "Sélectionner une annotation : cochez All labels et cliquez sur l'étiquette Tree de l'annotation à modifier.",
-        "Modifier une annotation sélectionnée : cliquez et maintenez le clique sur le point à bouger, redessinez le rectangle et lâchez.",
-        "Supprimer une annotation sélectionnée : cliquez sur la poubelle.",
-      ].join("\n\n")
-    );
-  });
+  button.style.fontSize = "1.5rem";
+  button.style.padding = "1.5%";
+  button.addEventListener("click", openDialog);
 
   toolbar.appendChild(button);
+
+  // Hide button to select rectangle
+
+  const recButton = document.querySelector(
+    '#root > div > main > div.prodigy-annotator.c0149 > div > div > div.prodigy-title-wrapper.c0184 > div.c0178 > div > div.c0180 > button'
+  );
+
+  recButton.style.display = "none";
 
   // Translate "All lables" to "Afficher les étiquettes"
 
@@ -48,15 +191,29 @@ const main = () => {
     '#root > div > main > div.prodigy-annotator.c0149 > div > div > div.prodigy-title-wrapper.c0184 > div.c0178 > div > div.c0180 > label > span'
   );
 
-  textLabelsToggle.innerHTML = "Afficher les étiquettes"
+  textLabelsToggle.innerHTML = "Modifier ou supprimer<br/>des annotations"
+  textLabelsToggle.style.fontSize = "1.5rem";
 
+  // Change the checkbox
 
+  toolbar.childNodes[1].childNodes[1].childNodes[0].style.transform = "scale(1.5)";
+  toolbar.childNodes[1].childNodes[1].childNodes[0].style.margin = "2%";
+  toolbar.childNodes[1].childNodes[1].childNodes[0].style.cursor = "pointer";
 
-  // Change container
+  toolbar.childNodes[1].childNodes[1].style.display = "flex";
+  toolbar.childNodes[1].childNodes[1].style.flexDirection = "row";
+  toolbar.childNodes[1].childNodes[1].style.alignContent = "center";
+  toolbar.childNodes[1].childNodes[1].style.alignItems = "center";
+
+  // Change the size of the container
 
   const container = document.querySelector(
     "#root > div > main > div.prodigy-annotator.c0149 > div"
   );
+
+  container.style.height = "calc(100% - 200px)";
+  container.style.paddingBottom = "unset";
+
 
   // Change size of the frame around the image
 
@@ -64,18 +221,63 @@ const main = () => {
     '#root > div > main > div.prodigy-annotator.c0149 > div > div'
   );
 
+  frame.style.maxWidth = 'unset';
+  frame.style.height = "100%";
+  frame.style.alignContent = "unset";
+  frame.style.flexDirection = "column";
+
+
+  // Change the size of the div below the toolbar
+
+  const board = document.querySelector(
+    '#root > div.c012 > main > div.prodigy-annotator.c0149 > div > div > div.prodigy-content.c01111.c01110.c0175.c01112'
+  );
+
+  board.style.flexGrow = "1";
+  board.style.padding = "unset";
+  board.id = "board";
+
+
+  const crosshair = document.querySelector(
+    '#board > div > div.c0179'
+  );
+
+  crosshair.style.setProperty('display', 'flex', 'important');
+  crosshair.style.alignItems = "center";
+  crosshair.style.justifyContent = "center";
+  crosshair.style.height = "100%";
+  crosshair.style.width = "100%";
+
   // Change the size of the image
 
   const image = document.querySelector(
     '#root > div > main > div.prodigy-annotator.c0149 > div > div > div.prodigy-content.c01111.c01110.c0175.c01112 > div > div > div > canvas'
   );
 
-  image.style.width = "100%";
-  image.style.height = "100%";
+  height = image.height
+  width = image.width
 
+  // Change the size of the image presentation
 
-  frame.style.maxWidth = 'unset';
+  const presentation = document.querySelector(
+    '#root > div.c012 > main > div.prodigy-annotator.c0149 > div > div > div.prodigy-content.c01111.c01110.c0175.c01112 > div > div > div'
+  );
 
+  presentation.style.width = width;
+  presentation.style.height = height;
+
+  // image.style.padding = "0px";
+  // image.style.border = "0px";
+  // image.style.background = "transparent";
+  // image.style.position = "absolute";
+  // image.style.margin = "auto";
+  // image.style.display = "block";
+  // image.style.width = "300px";
+  // image.style.height = "300px";
+  // image.style.top = "0";
+  // image.style.bottom = "0";
+  // image.style.left = "0";
+  // image.style.right = "0";
 
   // Remove the title with label "Tree"
 
@@ -93,6 +295,7 @@ const main = () => {
   );
 
   reverse(buttons);
+
 
   // Change the valid button
 
@@ -134,6 +337,8 @@ const main = () => {
   );
 
   undo.style.width = "20%";
+
+  setTimeout(createDialog, 300);
 
 }
 

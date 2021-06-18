@@ -6,7 +6,6 @@ RUN cd /tmp/install && pip install ./prodigy*.whl # ex: install/prodigy-1.10.8-c
 
 WORKDIR /app
 
-COPY ./data /app/data
 COPY ./prodigy_recipe /app/prodigy_recipe 
 COPY ./start_server.sh /app
 COPY ./prodigy.json /app
