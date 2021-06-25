@@ -142,7 +142,7 @@ const main = () => {
     '#root > div > main > div.prodigy-annotator.c0149 > div > div > div.prodigy-title-wrapper.c0184 > div.c0178 > div > div:nth-child(1) > button:nth-child(1)'
   );
 
-  deleteButton.style.width = "12%";
+  deleteButton.style.width = "10%";
   deleteButton.style.minWidth = "fit-content";
   deleteButton.style.height = "auto";
 
@@ -159,7 +159,7 @@ const main = () => {
     '#root > div > main > div.prodigy-annotator.c0149 > div > div > div.prodigy-title-wrapper.c0184 > div.c0178 > div > div:nth-child(1) > button:nth-child(2)'
   );
 
-  revertButton.style.width = "12%";
+  revertButton.style.width = "10%";
   revertButton.style.minWidth = "fit-content";
   revertButton.style.height = "auto";
 
@@ -181,7 +181,7 @@ const main = () => {
   button.classList.add("c0198");
   button.style.marginLeft = "auto";
   button.style.fontSize = "1.5rem";
-  button.style.padding = "1.5%";
+  button.style.padding = "1%";
   button.addEventListener("click", openDialog);
 
   toolbar.appendChild(button);

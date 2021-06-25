@@ -3,7 +3,7 @@
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   height: 100vh;
 }
@@ -13,7 +13,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -24,6 +24,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 2rem;
+  background-color: white;
 }
 
 .footer a {
@@ -53,7 +55,7 @@
 }
 
 .mainTitle {
-  background: rgba(216, 236, 213, 0.8);
+  background: rgba(216, 236, 213, 1);
   font-size: 175%;
   text-align: center;
 }
@@ -123,4 +125,16 @@
 .paragraph {
   width: 650px;
   text-align: center;
+}
+
+.mainImage {
+  background-image: url("../public/images/background.png");
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 100px);
+  background-size: cover;
+  opacity: 0.6;
+  z-index: -1;
 }
