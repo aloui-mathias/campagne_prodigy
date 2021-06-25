@@ -56,11 +56,7 @@ export default function Home({ prodigyUrl }) {
             détection d'arbres
           </h1>
         </div>
-        <p className={styles.paragraph}>
-          Pour participer à la campagne d'annotations et d'amélioration du
-          modèle de détection d'arbres, entrez adresse email et commencez à
-          annoter les images :
-        </p>
+        <div className={styles.mainImage}></div>
         <Input
           placeholder="Entrez votre adresse email"
           error={error}
