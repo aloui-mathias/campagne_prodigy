@@ -1,6 +1,10 @@
 {
   "host": "0.0.0.0",
-  "project_info": ["dataset", "session"],
+  "project_info": [
+    "dataset",
+    "session"
+  ],
+  "ui_lang": "fr",
   "db_settings": {
     "sqlite": {
       "name": "prodigy.db",
