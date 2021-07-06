@@ -39,7 +39,11 @@ const createDialog = () => {
     "- Pour supprimer, cliquez sur l'étiquette de l'annoation puis cliquez sur la poubelle.",
     " Pour annuler toutes vos modifications, cliquez sur la double flèche circulaire.",
     "",
-    "Une fois l'image annotée, cliquez sur \"Valider\". Si vous souhaitez passer une image, cliquez sur \"Ignorer\". Si vous voulez retourner à l'image précédente, cliquez sur la flèche en bas à gauche."
+    "Une fois l'image annotée, cliquez sur \"Valider\".",
+    "Si vous souhaitez passer une image, cliquez sur \"Ignorer\".",
+    "Si vous voulez retourner à l'image précédente, cliquez sur la flèche en bas à gauche.",
+    "",
+    "Pour revoir ses intructions, cliquez sur le bouton rouge \"Instructions\"."
   ].join('<br/>');
   dialogInstruction.style.textAlign = "left";
   dialogInstruction.style.fontSize = "2rem";
@@ -50,12 +54,14 @@ const createDialog = () => {
   const dialogButton = document.createElement("button");
 
   dialogButton.innerHTML = "Fermer";
-  dialogButton.style.background = "#54606e";
+  dialogButton.style.background = "rgb(255 0 0)";
   dialogButton.style.color = "#fff";
   dialogButton.classList.add("c0197");
   dialogButton.classList.add("c0198");
   dialogButton.style.margin = "auto";
   dialogButton.style.fontSize = "2rem";
+  dialogButton.style.margin = '2rem';
+  dialogButton.style.padding = '1rem 2rem';
   dialogButton.addEventListener("click", closeDialog);
 
   dialog.appendChild(dialogButton);
@@ -64,7 +70,7 @@ const createDialog = () => {
 
   dialog.style.position = "absolute";
   dialog.style.background = "rgb(246, 246, 246)";
-  dialog.style.top = "20%";
+  dialog.style.top = "-5%";
   dialog.style.left = "0%";
   dialog.style.padding = "2%";
   dialog.style.margin = "3%";
@@ -170,22 +176,6 @@ const main = () => {
   revertImage.style.width = "100%";
   revertImage.style.height = "100%";
 
-  // Add instructions button  
-
-  const button = document.createElement("button");
-
-  button.innerHTML = "Instructions";
-  button.style.background = "#ff0000";
-  button.style.color = "#fff";
-  button.classList.add("c0197");
-  button.classList.add("c0198");
-  button.style.marginLeft = "auto";
-  button.style.fontSize = "1.5rem";
-  button.style.padding = "1%";
-  button.addEventListener("click", openDialog);
-
-  toolbar.appendChild(button);
-
   // Hide button to select rectangle
 
   const recButton = document.querySelector(
@@ -257,11 +247,44 @@ const main = () => {
   crosshair.style.height = "100%";
   crosshair.style.width = "100%";
 
+
+  const c0179 = document.querySelector(
+    '#board > div > div.c0179'
+  );
+
+  c0179.style.cursor = 'auto';
+  c0179.style.flexWrap = 'wrap';
+  c0179.style.setProperty('display', 'flex', 'important');
+  c0179.style.flexDirection = 'column';
+  c0179.style.alignItems = 'center';
+  c0179.style.justifyContent = 'space-evenly';
+  c0179.style.height = '100%';
+  c0179.style.alignContent = 'center';
+  c0179.style.width = '100%';
+
+  // Add instructions button  
+
+  const button = document.createElement("button");
+
+  button.innerHTML = "Instructions";
+  button.style.background = "#ff0000";
+  button.style.color = "#fff";
+  button.classList.add("c0197");
+  button.classList.add("c0198");
+  button.style.marginLeft = "0px";
+  button.style.fontSize = "1.5rem";
+  button.style.padding = "1%";
+  button.addEventListener("click", openDialog);
+
+  c0179.appendChild(button);
+
   // Change the size of the image
 
   const image = document.querySelector(
     '#root > div > main > div.prodigy-annotator.c0149 > div > div > div.prodigy-content.c01111.c01110.c0175.c01112 > div > div > div > canvas'
   );
+
+  image.style.cursor = 'crosshair';
 
   height = image.height
   width = image.width
@@ -344,6 +367,14 @@ const main = () => {
   const undo = document.querySelector(
     '#root > div > main > div.prodigy-annotator.c0149 > footer > div > button.prodigy-button-undo.c0160.c0164'
   );
+
+  // Make buttons more round
+
+  const c0197 = document.querySelector(
+    '.c0197'
+  );
+
+  c0197.style.borderRadius = '25px';
 
   undo.style.width = "20%";
 

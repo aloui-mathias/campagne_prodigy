@@ -56,6 +56,13 @@ export default function Home({ prodigyUrl }) {
             détection d'arbres
           </h1>
         </div>
+        <div className={styles.mainText}>
+          <h2>
+            Citoyens, citoyennes, vous souhaitez voir plus d’arbres dans les rues de votre belle ville et contribuer à votre échelle ? Eh bien vous êtes au bon endroit ! <br />
+            Aidez-nous à entrainer un algorithme pour reconnaitre les arbres présents autour de chez vous. C’est fun et facile !
+            Entrez votre adresse pour commencer.
+          </h2>
+        </div>
         <div className={styles.mainImage}></div>
         <Input
           placeholder="Entrez votre adresse email"
@@ -66,7 +73,13 @@ export default function Home({ prodigyUrl }) {
         />
         <Button onClick={handleOnStart} text="Commencer" />
       </main>
-      <footer className={styles.footer}>Natural Solutions</footer>
+      <footer className={styles.footer}>
+        <p className={styles.footerText}>
+          Votre adresse mail ne sera pas communiquée ou vendue et sera traitée anonymement afin d'enregistrer vos annotations conformément aux recommandations de la CNIL et en accord avec le RGPD.
+        </p>
+        <div className={styles.logo}>
+        </div>
+      </footer>
     </div>
   );
 }
