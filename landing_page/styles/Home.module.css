@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 100vh;
+  height: fit-content;
 }
 
 .main {
@@ -16,6 +16,11 @@
   justify-content: flex-start;
   align-items: center;
   width: 100%;
+  background-image: url("../public/images/background.png");
+  height: calc(100% - 100px);
+  background-size: cover;
+  display: flex;
+  justify-content: space-around;
 }
 
 .footer {
@@ -31,7 +36,7 @@
 }
 
 .footerText {
-  font-size: small;
+  font-size: 0.7rem;
   text-align: center;
 }
 
@@ -146,15 +151,4 @@
 .paragraph {
   width: 650px;
   text-align: center;
-}
-
-.mainImage {
-  background-image: url("../public/images/background.png");
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: calc(100% - 100px);
-  background-size: cover;
-  z-index: -1;
 }
