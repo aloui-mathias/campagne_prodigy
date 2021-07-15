@@ -63,7 +63,6 @@ export default function Home({ prodigyUrl }) {
             Entrez votre adresse pour commencer.
           </h2>
         </div>
-        <div className={styles.mainImage}></div>
         <Input
           placeholder="Entrez votre adresse email"
           error={error}

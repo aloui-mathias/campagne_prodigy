@@ -27,7 +27,7 @@ def classify_trees(dataset, source):
             "javascript": javascript_template,
             "force_stream_order": True,
             "feed_overlap": True,
-            "batch_size": "20",
+            "batch_size": "5",
             "answer_batch_size": "1",
             "label": "Tree",
             "labels": ["Tree"],

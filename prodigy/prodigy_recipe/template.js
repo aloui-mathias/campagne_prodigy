@@ -156,8 +156,8 @@ const main = () => {
     '#root > div > main > div.prodigy-annotator.c0149 > div > div > div.prodigy-title-wrapper.c0184 > div.c0178 > div > div:nth-child(1) > button:nth-child(1) > svg'
   );
 
-  deleteImage.style.width = "100%";
-  deleteImage.style.height = "100%";
+  deleteImage.style.width = "40px";
+  deleteImage.style.height = "40px";
 
   // Change the size of the revert button
 
@@ -173,8 +173,8 @@ const main = () => {
     '#root > div > main > div.prodigy-annotator.c0149 > div > div > div.prodigy-title-wrapper.c0184 > div.c0178 > div > div:nth-child(1) > button:nth-child(2) > svg'
   );
 
-  revertImage.style.width = "100%";
-  revertImage.style.height = "100%";
+  revertImage.style.width = "40px";
+  revertImage.style.height = "40px";
 
   // Hide button to select rectangle
 
