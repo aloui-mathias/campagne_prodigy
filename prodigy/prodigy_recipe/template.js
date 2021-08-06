@@ -32,12 +32,15 @@ const createDialog = () => {
   const dialogInstruction = document.createElement('div');
 
   dialogInstruction.innerHTML = [
-    "Instructions :",
+    "Pour corriger les prédictions du modèle :",
     "- Pour ajouter une annotation, dessinez le rectangle en maintenant le clique.",
     "- Pour pouvoir modifier les annotations, cochez \"Modifier ou supprimer des annotations\" :",
     "- Pour changer la taille et la position, cliquez sur l'étiquette de l'annotation puis bougez les points.",
     "- Pour supprimer, cliquez sur l'étiquette de l'annoation puis cliquez sur la poubelle.",
     " Pour annuler toutes vos modifications, cliquez sur la double flèche circulaire.",
+    "",
+    "Si l'arbre n'est pas entièrement dans l'image, vous n'êtes pas obligé de l'annoter.",
+    "Pour les arbres alignés ou collés, essayez autant que possible de délimiter le contour de chaque arbre (deux rectangles peuvent se chevaucher).",
     "",
     "Une fois l'image annotée, cliquez sur \"Valider\".",
     "Si vous souhaitez passer une image, cliquez sur \"Ignorer\".",
